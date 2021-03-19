@@ -1,10 +1,9 @@
 from myapp import app
 import operator as op
 from flask import Flask, request, jsonify
-
 # input from postman should have format:
 # example: 1 + 2 - 3 * 5 / 6
-app = Flask(__name__)
+
 
 def calc(A) -> float:
     # define mathematical operators
@@ -53,8 +52,8 @@ def calc(A) -> float:
     return result
 
 
-@app.route('/post', methods=['POST'])
-def calc():
+@app.route('/calc1', methods=['POST'])
+def calc1():
     x = request.data
     print(x)
     # define mathematical operators
@@ -87,8 +86,5 @@ def calc():
 
 
 if __name__ == '__main__':
+    app = Flask(__name__)
     app.run(debug=True)
-
-
-
-
